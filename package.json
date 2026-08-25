@@ -1,0 +1,25 @@
+{
+  "name": "wallet-connector",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Secure wallet connection platform for cryptocurrency wallets",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "npm run deploy",
+    "dev": "wrangler dev --port 8788"
+  },
+  "keywords": [
+    "wallet",
+    "crypto",
+    "blockchain",
+    "connection",
+    "secure"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "wrangler": "^3.114.17"
+  }
+}

